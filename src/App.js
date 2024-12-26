@@ -1,8 +1,13 @@
 import React,{ useState } from 'react';
 import './App.css';
-import bg1 from './img/img1.png';
-import bg2 from './img/us.png';
-import bg3 from './img/img4.png';
+import bg1 from './img/sustainable-development-goals-still-life.jpg';
+import bg2 from './img/White-Revolution.png';
+import bg3 from './img/blue.png';
+import bg4 from './img/industry.png';
+import bg5 from './img/ecnomic.png';
+import bg6 from './img/it.png';
+import bg7 from './img/digital.png';
+
 
 
 function Navbarcom() {
@@ -11,46 +16,46 @@ function Navbarcom() {
 
   const dots = [
     {
-      title: "The American Revolution",
-      description: "The American colonies’ fight for independence from Britain in the late 18th century was a landmark event in world history.",
-      description1:"It resulted in the establishment of the United States of America and the spread of Enlightenment ideals.",
-      backgroundImage: bg1,    
+      title: "Green Revolution",
+      description: "The Green Revolution was a period of agricultural transformation in India led by scientists like M.S. Swaminathan.",
+      description1:"It introduced high-yield variety (HYV) seeds, modern irrigation techniques, and chemical fertilizers, significantly increasing food grain production. This helped India achieve self-sufficiency in food production and combat famine.",
+      backgroundImage: bg1, 
     },
     {
-      title: "The Industrial Revolution",
-      description: "The Industrial Revolution transformed economies from agrarian-based systems to industrial powerhouses, beginning in Britain.",
-      description1:"With the introduction of machinery, such as the steam engine, production methods became faster and more efficient.",
+      title: "White Revolution",
+      description: "The White Revolution, spearheaded by Verghese Kurien through the National Dairy Development Board (NDDB), transformed India into the largest producer of milk and dairy products in the world. ",
+      description1:"The initiative, known as Operation Flood, improved rural incomes and reduced dependence on dairy imports.",
       backgroundImage: bg2,    
     },
     {
-      title: "Cotton",
-      description: "Before the world embraced cotton, most civilizations wore animal skins to keep warm.",
-      description1:"Indians discovered cotton in the 5th and 4th millennium BCE. They started cultivating this precious crop during the Indus Valley Civilization.",
+      title: "Blue Revolution",
+      description: "The Blue Revolution focused on the development and growth of aquaculture and fisheries in India.",
+      description1:"It aimed to increase fish production, enhance rural livelihoods, and ensure food security. It also emphasized sustainable practices in marine and freshwater fishing.",
       backgroundImage: bg3,    
     },
     {
-      title: "The American Revolution",
-      description: "The American colonies’ fight for independence from Britain in the late 18th century was a landmark event in world history.",
-      description1:"It resulted in the establishment of the United States of America and the spread of Enlightenment ideals.",
-      backgroundImage: bg1,
+      title: "Industrial Revolution in India",
+      description: "Post-independence, India focused on industrialization to build a self-reliant economy. Establishing heavy industries, public sector units, and infrastructure development marked this era.",
+      description1:"Initiatives like the Five-Year Plans played a crucial role in laying the foundation for modern industries.",
+      backgroundImage: bg4,
     },
     {
-      title: "The Industrial Revolution",
-      description: "The Industrial Revolution transformed economies from agrarian-based systems to industrial powerhouses, beginning in Britain.",
-      description1:"With the introduction of machinery, such as the steam engine, production methods became faster and more efficient.",
-      backgroundImage: bg2, 
+      title: "Economic Liberalization",
+      description: "The economic liberalization of 1991 marked a significant shift from a socialist model to a market-driven economy.",
+      description1:"Spearheaded by Finance Minister Manmohan Singh under Prime Minister P.V. Narasimha Rao, this period saw reforms like reducing trade barriers, promoting foreign investments, and privatizing public sector enterprises.",
+      backgroundImage: bg5, 
     },
     {
-      title: "Cotton",
-      description: "Before the world embraced cotton, most civilizations wore animal skins to keep warm.",
-      description1:"Indians discovered cotton in the 5th and 4th millennium BCE. They started cultivating this precious crop during the Indus Valley Civilization.",
-      backgroundImage: bg3,
+      title: "Information Technology Revolution",
+      description: "The IT Revolution positioned India as a global leader in software development and IT services. Cities like Bengaluru became hubs of innovation, creating millions of jobs and boosting exports.",
+      description1:"Companies like Infosys, Wipro, and TCS became internationally renowned.",
+      backgroundImage: bg6,
     },
     {
-      title: "The Industrial Revolution",
-      description: "The Industrial Revolution transformed economies from agrarian-based systems to industrial powerhouses, beginning in Britain.",
-      description1:"With the introduction of machinery, such as the steam engine, production methods became faster and more efficient.",
-      backgroundImage: bg2,
+      title: "Digital Revolution",
+      description: "The Digital Revolution in India, driven by initiatives like Digital India aims to transform the country into a digitally empowered society.",
+      description1:"Efforts include increasing internet connectivity, promoting digital payments, and introducing platforms like UPI (Unified Payments Interface) for financial inclusion.",
+      backgroundImage: bg7,
     },
   ];
 
@@ -61,20 +66,17 @@ function Navbarcom() {
     setActiveDot(index);
   };
   const openMapLocation = (location) => {
-    const encodedLocation = encodeURIComponent(location); // Encode the location for the URL
+    const encodedLocation = encodeURIComponent(location); 
     const mapUrl = `https://www.google.com/maps?q=${encodedLocation}`;
-    window.open(mapUrl, "_blank"); // Open in a new tab
+    window.open(mapUrl, "_blank"); 
   };
  
 
   return (
     <div className="app">
-      {/* Navbar */}
       <nav className="navbar">
         <div className="logo">TIMELINE</div>
       </nav>
-
-      {/* Main Content */}
       <div className="main"
         style={{
           backgroundImage: `url(${dots[activeDot].backgroundImage})`,
@@ -91,14 +93,19 @@ function Navbarcom() {
             {dots.map((dot, index) => (
               <div
                 key={index}
-                className={`dot ${activeDot === index ? "active" : ""}`}
+                className={`dot-container ${activeDot === index ? "active" : ""}`}
                 style={{
                   transform: `rotate(${index * (360 / dots.length)}deg) translate(150px) rotate(-${index * (360 / dots.length)}deg)`,
                 }}
                 onClick={() => handleClick(index)}
-              />
+              >
+                <div className="dot"></div>
+                <div className="dot-label">{dots.label || `199${index + 1}`}</div>
                 
+              </div>
+  
             ))}
+            
           </div>
         </div>
         <div className="content">

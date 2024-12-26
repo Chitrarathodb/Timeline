@@ -1,22 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
-/* General styles */
 * {
   font-family: "Urbanist", serif; 
   color: #fff;
 }
 
-/* App container */
 .app {
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
 }
-
-/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -37,7 +31,6 @@
   font-size: 1.5rem;
   font-weight: 600;
 }
-/* Main content */
 .main {
   display: flex;
   flex-direction: row;
@@ -54,18 +47,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
-  z-index: 1; /* Place above background but below content */
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
-/* Circle container */
 .circle-container {
-  flex: 1; /* Takes half of the screen */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-/* Rotating circle */
 .circle {
   position: relative;
   width: 300px;
@@ -81,27 +71,12 @@
   z-index: 1000;
 }
 
-/* Dots */
-.dot {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
 
-.dot.active {
-  background-color: #fff;
-  border: 2px solid red;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
 
-/* Content container */
+
 .content {
   position: relative;
-  z-index: 2; /* Place above the overlay */
+  z-index: 2;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -113,7 +88,7 @@
 
 .content h3 {
   font-size: 24px;
-  margin: 0 0 10px; /* Spacing below h3 */
+  margin: 0 0 10px; 
 }
 
 .content p {
@@ -121,7 +96,7 @@
   margin: 0;
   line-height: 1.5;
   margin-top: 10px;
-  max-width: 400px; /* Limit width for better readability */
+  max-width: 400px;
 }
 button {
   background-color: #ff5733;
@@ -140,6 +115,45 @@ button {
 button:hover {
   background-color: #ff3300;
 }
+
+.dot-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dot-label {
+  margin-top: 10px; 
+  font-size: 14px;
+  color: #fff; 
+  text-align: center;
+  white-space: nowrap; 
+  pointer-events: none; 
+  margin-left: -80px !important;
+}
+
+.dot-container.active .dot {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  border: 2px solid red;
+  height: 25px;
+  width: 25px;
+}
+
 
 @media (max-width:700px){
   .main {
